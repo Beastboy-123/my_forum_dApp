@@ -39,7 +39,7 @@ type PostDetail = {
 };
 
 export default function Home() {
-  const postManagerContract = "0x2fb69A76d1daA7c30cAF38402111CB5e1dc822F8"; //postManager smart contract address
+  const postManagerContract = "0xEe5FEc76C10538BEf18a6Ca3C81A659ec7AfE5AA"; //postManager smart contract address
 
   //variables
   const [token, setToken] = useState<string>("");
@@ -194,8 +194,8 @@ export default function Home() {
 
         //(4) call web3.storage API function to store data on IPFS as JSON
         const files = [new File([buffer], "post.json")];
-const cid = await storage.put(files);
-setLatestCid(cid);
+        const cid = await storage.put(files);
+        setLatestCid(cid);
         //store image on IPFS
         const imageFile = [new File([file], filename)];
         const imageCid = await storage.put(imageFile);
